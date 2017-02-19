@@ -1,0 +1,63 @@
+.panel-container {
+  border-radius: 0;
+  margin: 30px 0;
+  padding: 30px;
+}
+
+.blockquote {
+  background: $pale-blue;
+  border-left: 10px solid $strong-blue;
+  font-size: 1.3em;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 2em;
+  margin: 3em 0;
+  padding: 0.5em 20px;
+
+  .author {
+    font-style: normal;
+    font-weight: bolder;
+    display: block;
+    margin-top: 1em;
+  }
+}
+
+.about {
+  color: $light-blue;
+  font-size: 5.75rem;
+  padding-left: 40px;
+}
+
+.about-page {
+  background-image: url("../img/calabash.png");
+  background-position: 98% 90%;
+  background-repeat: no-repeat;
+  background-size: 150px;
+  display: inline-flex;
+  font-family: $roboto;
+
+  .content {
+    display: inline-block;
+    font-size: 100%;
+    font-weight: 300;
+    line-height: 1.8em;
+    padding: 10px 15px;
+    z-index: 2;
+
+    p {
+      font-family: $open-sans;
+      font-weight: 400;
+      margin: 0 40px;
+      font-size: 1.3em;
+      line-height: 2em;
+      text-align: justify;
+
+      &::first-letter {
+        color: $strong-blue;
+        font-family: $cursive;
+        font-size: 200%;
+        font-style: italic;
+      }
+    }
+  }
+}
