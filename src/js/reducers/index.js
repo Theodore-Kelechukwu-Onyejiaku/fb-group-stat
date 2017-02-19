@@ -1,13 +1,13 @@
 import {combineReducers} from 'redux';
-import proverbs from './proverbs/proverbReducer';
-import translations from './translations/translationReducer';
+import stats from './stats/statReducer';
+import settings from './settings/settingReducer';
 import auth from './auth'
 import ajaxCallsInProgress from './ajaxStatusReducer';
 
 
 const rootReducer = combineReducers({
-  proverbs,
-  translations,
+  stats,
+  settings,
   auth,
   ajaxCallsInProgress
 });

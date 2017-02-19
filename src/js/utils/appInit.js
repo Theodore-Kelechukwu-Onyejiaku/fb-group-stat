@@ -1,12 +1,14 @@
-import * as proverbActions from '../actions/proverbActions.js';
+import * as statActions from '../actions/statActions.js';
+import * as settingsActions from '../actions/settingActions';
 import fBLoginHandler from '../lib/facebook/fb_login_handler';
 
-function loadData(store) {
-  store.dispatch(proverbActions.loadProverbs());
+async function loadData(store) {
+  await store.dispatch(settingsActions.loadSettings());
+  store.dispatch(statActions.loadStats());
 }
 
 function appInit (store) {
-  (new fBLoginHandler(store)).loadInitScript();
+  // (new fBLoginHandler(store)).loadInitScript();
   loadData(store)
 }
 

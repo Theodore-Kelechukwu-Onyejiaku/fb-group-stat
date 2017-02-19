@@ -13,20 +13,8 @@ export class Header extends React.Component {
     return (
       <nav className="navbar navbar-default navbar-fixed-top top-header">
         <div className="container-fluid">
-          <Link to="/" className="navbar-brand">Hidden Wisdom</Link>
+          <Link to="/" className="navbar-brand">FB Group Stats</Link>
           <ul className="nav navbar-nav pull-xs-right right-nav">
-            <li className="nav-item" key={1}>
-              <Link className="nav-link" to="/proverbs/favorites">
-                <i className="fa fa-star" aria-hidden="true" />
-                Favorites
-              </Link>
-            </li>
-            <li className="nav-item" key={2}>
-              <Link className="nav-link" to="/proverbs">
-                <i className="fa fa-list-alt"/>
-                List
-              </Link>
-            </li>
             {!isEmpty(currentUser) && <li className="nav-item" key={3}>
               <Link className="nav-link" to="/proverbs/new">
                 <i className="fa fa-file-o" aria-hidden="true" />

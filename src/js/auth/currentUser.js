@@ -48,7 +48,20 @@ class CurrentUser {
    * @param accessToken : string
    */
   static setAccessToken(accessToken) {
-    cookieAdapter.set(CVar.accessToken, accessToken)
+    if (accessToken)
+      cookieAdapter.set(CVar.accessToken, accessToken)
+  }
+
+  static getGroupId() {
+    return cookieAdapter.get(CVar.groupId)
+  }
+
+  /**
+   * @param groupId : string
+   */
+  static setGroupId(groupId) {
+    if (groupId)
+      cookieAdapter.set(CVar.groupId, groupId)
   }
 
   /**

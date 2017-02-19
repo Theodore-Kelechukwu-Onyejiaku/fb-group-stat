@@ -1,9 +1,9 @@
 let host;
 
 if (process.ENV === 'production') {
-  host = "//hiddenwisdom-api.herokuapp.com/api/v1"
+  host = "https://graph.facebook.com/v2.8"
 } else {
-  host = "//hiddenwisdom-api-staging.herokuapp.com/api/v1"
+  host = "https://graph.facebook.com/v2.8"
 }
 
 module.exports = {

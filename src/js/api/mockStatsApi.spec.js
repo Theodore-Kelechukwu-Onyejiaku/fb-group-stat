@@ -1,7 +1,7 @@
 import expect from 'expect';
-import mockProverbsApi, { proverbWithTranslation } from './mockProverbsApi';
-import { proverbs } from './data/proverbs';
-import { translations } from './data/translations';
+import mockProverbsApi, { proverbWithTranslation } from './mockStatsApi';
+import { proverbs } from './data/stats';
+import { translations } from './data/settings';
 
 describe('mockProverbApi()', () => {
   it('should return an array of proverbs on getAllProverbs()', () => {

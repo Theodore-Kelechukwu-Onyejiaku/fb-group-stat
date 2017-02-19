@@ -4,8 +4,8 @@ import App from './components/App';
 import HomePage from './components/home/Index';
 import AboutPage from './components/about/Index';
 import ProfilePage from './components/profile/Index';
-import Proverbs from './components/statistics/list/Index';
-import Proverb from './components/statistics/stat/Index';
+import Stats from './components/statistics/list/Index';
+import Stat from './components/statistics/stat/Index';
 import LoginPage from './components/login/Index';
 import FacebookLogin from './components/login/Facebook';
 import PhoneLogin from './components/login/PhoneNumber';
@@ -37,10 +37,7 @@ export default (
 
     <Route path="/" component={App} >
       <IndexRoute component={HomePage} />
-      <Route path="proverbs" component={Proverbs} />
-
-      <Route path="proverbs/new" component={Proverb} />
-      <Route path="proverbs/:proverbId" component={Proverb} />
+      <Route path="stats" component={HomePage} />
 
       <Route path="about" component={AboutPage} />
       <Route path="profile" component={ProfilePage} />

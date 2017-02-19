@@ -1,6 +1,6 @@
 export default {
-  proverbs: {},
-  translations: {},
+  stats: {},
+  settings: {},
   auth: {
     fbLoginMeta: {status: false},
     currentUser: {}

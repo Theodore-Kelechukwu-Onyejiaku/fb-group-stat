@@ -17,23 +17,11 @@ export class Sidebar extends React.Component {
               </li>
               <li className="divider">Menu</li>
               <li>
-                <Link to="/proverbs" activeClassName="active">
+                <Link to="/stats" activeClassName="active">
                   <i className="fa fa-comments" />
-                  <span>Proverbs</span>
+                  <span>Statistics</span>
                 </Link>
               </li>
-              {currentUser && <li className="parent">
-                <Link to="/favorites" activeClassName="active">
-                  <i className="fa fa-heartbeat" />
-                  <span>My favorites</span>
-                </Link>
-              </li>}
-              {currentUser && <li className="parent">
-                <Link to="/profile" activeClassName="active">
-                  <i className="fa fa-user" />
-                  <span>Profile</span>
-                </Link>
-              </li>}
               <li className="parent">
                 <Link to="/about" activeClassName="active">
                   <i className="fa fa-info-circle" />

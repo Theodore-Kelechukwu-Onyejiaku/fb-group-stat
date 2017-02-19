@@ -6,5 +6,6 @@ module.exports = {
   userToken: "wqaedkzx",
   userFBLoginStatus: "uyrtieru",
   accessToken: 'eurtifejn',
+  groupId: 'jeuwyaoepf',
   referrer: 'ehdieleda'
 };

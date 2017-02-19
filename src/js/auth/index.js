@@ -32,7 +32,7 @@ class Auth {
    * @returns {string} the user access token from facebook
    */
   getUserToken() {
-    return this.currentUser.userToken();
+    return this.currentUser.getAccessToken();
   }
 
   /**
@@ -41,6 +41,21 @@ class Auth {
    */
   setUserAccessToken(accessToken) {
     this.currentUser.setAccessToken(accessToken)
+  }
+
+  /**
+   * @returns {string} the user access token from facebook
+   */
+  getGroupId() {
+    return this.currentUser.getGroupId();
+  }
+
+  /**
+   * sets the access token from facebook in the cookie
+   * @param group_id
+   */
+  setGroupId(group_id) {
+    this.currentUser.setGroupId(group_id)
   }
 
   /**
