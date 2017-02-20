@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/FBDevCLagos/fb-group-stat.svg?style=svg)](https://circleci.com/gh/FBDevCLagos/fb-group-stat)
+
 # FB GROUP STAT
 
 ## [SETUP]()
