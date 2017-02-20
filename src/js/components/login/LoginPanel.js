@@ -8,20 +8,8 @@ const LoginPanel = ({
 }) => {
    return (
      <div className="panel pulse">
-       <h4>Sign up or login with</h4>
+       <h4>Login With</h4>
        <hr />
-       <Link
-         to="/login/phone-number"
-         className="btn btn-info">
-         Your phone number
-       </Link>
-       <p><span>or</span></p>
-       <Link
-         to="/login/email"
-         className="btn btn-default">
-         Your email address
-       </Link>
-       <p><span>or</span></p>
        <a
          href="#"
          className="btn btn-primary"

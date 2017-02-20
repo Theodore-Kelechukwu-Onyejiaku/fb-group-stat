@@ -1,17 +1,17 @@
 import React, { PropTypes, Component } from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux'
-import { saveProverb, loadProverbs } from '../../../actions/proverbActions';
+import { saveStat, loadStats } from '../../../actions/statActions';
 import { isEmpty } from 'underscore';
-import ProverbForm from './ProverbForm';
+import StatForm from './statForm';
 import toastr from 'toastr';
 
-class Proverb extends Component {
+class Stat extends Component {
   constructor(props, context) {
     super(props);
 
-    const { proverb } = this.props;
+    const { stat } = this.props;
     this.state = {
-      proverb,
+      stat,
       loading   : false 
     };
 
@@ -19,20 +19,20 @@ class Proverb extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.proverb.id !== nextProps.proverb.id) {
-      this.setState({ proverb: Object.assign({}, nextProps.proverb) });
+    if (this.props.stat.id !== nextProps.stat.id) {
+      this.setState({ stat: Object.assign({}, nextProps.stat) });
     }
   } 
 
   redirect() {
     this.setState({ loading: true });
-    toastr.success('Proverb Saved');
-    this.context.router.push('/proverbs');
+    toastr.success('Stat Saved');
+    this.context.router.push('/stats');
   } 
 
-  handleSubmit(proverb) {
+  handleSubmit(stat) {
     this.setState({ loading: true });
-    this.props.saveProverb(proverb)
+    this.props.saveStat(stat)
     .then(() => this.redirect())
     .catch(err => {
       toastr.error(err);
@@ -40,12 +40,12 @@ class Proverb extends Component {
   }
 
   render() {
-    const { proverb, loading } = this.state;
+    const { stat, loading } = this.state;
     return (
       <div className="panel-container about-page">
-        <h3>{`${this.props.params.proverbId ? "Edit" : "Create"} A Proverb`}</h3>
-        <ProverbForm
-          proverb={proverb}
+        <h3>{`${this.props.params.statId ? "Edit" : "Create"} A Stat`}</h3>
+        <StatForm
+          stat={stat}
           loading={loading}
           handleSubmit={this.handleSubmit} 
         />
@@ -54,41 +54,41 @@ class Proverb extends Component {
   }
 }
 
-Proverb.contextTypes = {
+Stat.contextTypes = {
   router: PropTypes.object
 };
 
-Proverb.propTypes = {
-  proverb     : PropTypes.object,
-  loadProverbs: PropTypes.func,
-  saveProverb : PropTypes.func,
+Stat.propTypes = {
+  stat     : PropTypes.object,
+  loadStats: PropTypes.func,
+  saveStat : PropTypes.func,
   params      : PropTypes.object
 };
 
-const getProverbValues = (proverbId, proverbs) => {
-  const proverb = Object.values(proverbs)
+const getStatValues = (statId, stats) => {
+  const stat = Object.values(stats)
   .filter(
-    proverb => proverb.id.toString() === proverbId
+    stat => stat.id.toString() === statId
   );
 
-  return !isEmpty(proverb) ? proverb[0] : null;
+  return !isEmpty(stat) ? stat[0] : null;
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let proverb = { body: "", language: "en", translations: [] , tags: [], author: "" };
-  const { proverbs } = state;
-  const { proverbId } = ownProps.params;
+  let stat = { body: "", language: "en", translations: [] , tags: [], author: "" };
+  const { stats } = state;
+  const { statId } = ownProps.params;
   
-  if (proverbId && Object.values(proverbs).length > 0) {
-    proverb = getProverbValues(proverbId, proverbs);
+  if (statId && Object.values(stats).length > 0) {
+    stat = getStatValues(statId, stats);
   }
 
-  return { proverb };
+  return { stat };
 };
 
 const mapDispatchToProps = {
-  loadProverbs,
-  saveProverb
+  loadStats,
+  saveStat
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Proverb);
+export default connect(mapStateToProps, mapDispatchToProps)(Stat);

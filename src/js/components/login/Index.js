@@ -47,8 +47,6 @@ class Login extends React.Component {
   render() {
     return (
       <IndexPage
-        onPhoneNumberLogin={this.onPhoneNumberLogin}
-        onEmailLogin={this.onEmailLogin}
         onFBLogin={this.onFBLogin}
         children={this.props.children} />
     )

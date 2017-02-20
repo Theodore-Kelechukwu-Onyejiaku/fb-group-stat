@@ -5,8 +5,9 @@ html {
 body {
   background-attachment: fixed;
   background-color: $site-bg;
-  background-image: url("../img/elephants.jpg");
+  background-image: url("../img/fb-dev-c-backdrop.png");
   background-repeat: no-repeat;
+  background-size: cover;
   color: $body-text;
   font-family: $roboto;
   font-size: $base-font-size;

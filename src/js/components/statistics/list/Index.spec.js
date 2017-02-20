@@ -1,23 +1,23 @@
 import expect from 'expect';
 import React from 'react'; // eslint-disable-line no-unused-vars
 import { mount, shallow } from 'enzyme'; // eslint-disable-line no-unused-vars
-import { Proverbs } from './Index';
+import { Stats } from './Index';
 
 /**
 * @return {Func} A shallow dom for tests
 */
 function setup(status) {
   let props = {
-    proverbs: {
+    stats: {
       1: { id: 1 },
       2: { id: 2 }
     }
   };
-  return shallow(<Proverbs {...props} />);
+  return shallow(<Stats {...props} />);
 }
 
-describe('<Proverbs />', () => {
-  it('renders a list of proverbs', () => {
+describe('<Stats />', () => {
+  it('renders a list of stats', () => {
     const wrapper = setup();
 
     // assertions

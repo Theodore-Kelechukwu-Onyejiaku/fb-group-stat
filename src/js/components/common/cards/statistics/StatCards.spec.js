@@ -1,26 +1,26 @@
 import expect from 'expect';
 import React from 'react'; // eslint-disable-line no-unused-vars
 import { mount, shallow } from 'enzyme'; // eslint-disable-line no-unused-vars
-import ProverbCards from './ProverbCards';
+import StatCards from './StatCards';
 
 /**
 * @return {Func} A shallow dom for tests
 */
 function setup(status) {
   let props = {
-    proverbs: {
-      1: { id: 1 },
-      2: { id: 2 }
-    }
+    stats: [
+      { id: 1 },
+      { id: 2 }
+    ]
   };
-  return shallow(<ProverbCards {...props} />);
+  return shallow(<StatCards {...props} />);
 }
 
-describe('<ProverbCards />', () => {
-  it('renders the ProverbCards component', () => {
+describe('<StatCards />', () => {
+  it('renders the StatCards component', () => {
     const wrapper = setup();
 
     // assertions
-    expect(wrapper.find('ProverbCard').length).toEqual(2);
+    expect(wrapper.find('StatCard').length).toEqual(2);
   });
 });

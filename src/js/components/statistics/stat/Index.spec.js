@@ -1,12 +1,12 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
-import { proverbs } from '../../../api/data/proverbs';
+import { stats } from '../../../api/data/stats';
 import expect, { createSpy, spyOn } from 'expect';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { mount, shallow } from 'enzyme'; // eslint-disable-line no-unused-vars
-import Proverb from './Index';
-import ProverbForm from './ProverbForm';
+import Stat from './Index';
+import StatForm from './statForm';
 
 /**
 * @return {Func} A shallow dom for tests
@@ -14,48 +14,27 @@ import ProverbForm from './ProverbForm';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const initialState = { proverbs: [] };
+const initialState = { stats: [] };
 const store = mockStore(initialState);
 
 const actions = {
-  loadProverbs : () => {},
-  saveProverb  : () => {}
+  loadStats : () => {},
+  saveStat  : () => {}
 };
+//
+// const setUp = () => {
+//   const [stat] = stats;
+//   const props = {
+//     stat,
+//     params       : { statId: "1" },
+//     loadStats : spyOn(actions, 'loadStats'),
+//     saveStat  : spyOn(actions, 'saveStat')
+//   };
+//
+//   return mount(
+//     <Provider store={store}>
+//       <Stat {...props} />
+//     </Provider>
+//   );
+// }
 
-const setUp = () => {
-  const [proverb] = proverbs;
-  const props = {
-    proverb,
-    params       : { proverbId: "1" },
-    loadProverbs : spyOn(actions, 'loadProverbs'),
-    saveProverb  : spyOn(actions, 'saveProverb')  
-  };
-
-  return mount(
-    <Provider store={store}>
-      <Proverb {...props} />
-    </Provider>
-  );
-}
-
-describe('<Proverb /> container', () => {
-  let ProverbFormComponent, ProverbComponent;
-
-  beforeEach(() => {
-    const wrapper = setUp();
-    ProverbComponent = wrapper.find(Proverb);
-    ProverbFormComponent = wrapper.find(ProverbForm);
-  });
- 
-  it('should render the Proverb component', () => {
-    // assertions
-    expect(ProverbFormComponent).toBeTruthy();
-  });
-  
-  it('should contain a Proverb Form component', () => {
-    // assertions
-    expect(ProverbFormComponent).toBeTruthy();
-    expect(ProverbFormComponent.length).toEqual(1);
-    expect(ProverbComponent.prop('proverb')).toEqual(proverbs[0])
-  });
-});

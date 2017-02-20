@@ -8,7 +8,7 @@ import ListPage from './ListPage';
 */
 function setup(status) {
   let props = {
-    proverbs: {
+    stats: {
       1: { id: 1 },
       2: { id: 2 }
     }
@@ -24,7 +24,7 @@ describe('<ListPage />', () => {
   })
 
   it('renders the IndexPage component', () => {
-    expect(wrapper.find('div.proverbs-index').length).toEqual(1);
-    expect(wrapper.find('ProverbCards').length).toEqual(1);
+    expect(wrapper.find('div.stats-index').length).toEqual(1);
+    expect(wrapper.find('StatCards').length).toEqual(1);
   });
 });

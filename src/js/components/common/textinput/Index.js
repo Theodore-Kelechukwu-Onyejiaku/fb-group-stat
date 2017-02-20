@@ -23,12 +23,13 @@ class TextInput extends Component {
     const { onChange, name } = this.props;
     const { value } = event.target;
 
-    this.setState({ value });
+    // this.setState({ value });
     return onChange(name, value);
   }
 
   render() {
-    const { name, label, value, placeholder, onChange, error } = this.props;
+    const { name, label, placeholder, onChange, error } = this.props;
+    const { value } = this.state;
     let wrapperClass = '';
     if (error && error.length > 0) {
       wrapperClass += ' ' + 'has-error';
@@ -55,7 +56,7 @@ class TextInput extends Component {
 TextInput.propTypes = {
   name      : PropTypes.string.isRequired,
   label     : PropTypes.string.isRequired,
-  onChange  : PropTypes.func,
+  onChange  : PropTypes.func.isRequired,
   value     : PropTypes.string,
   placeholder: PropTypes.string,
   error     : PropTypes.string

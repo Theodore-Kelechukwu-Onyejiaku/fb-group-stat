@@ -1,16 +1,24 @@
 import React, { PropTypes } from 'react'; // eslint-disable-line no-unused-vars
-import ProverbCards from '../../common/cards/proverbs/ProverbCards';
+import StatCards from '../../common/cards/statistics/StatCards';
 
-const ListPage = ({ proverbs }) => {
+const ListPage = ({ stats, refreshPage }) => {
    return (
-     <div className="proverbs-index">
-       <ProverbCards proverbs={proverbs} />
+     <div className="stats-index">
+       <div className="settings">
+         <button
+           className="btn btn-success"
+           onClick={refreshPage} >
+           Refresh
+         </button>
+       </div>
+       <StatCards stats={stats} />
      </div>
    );
  }
 
  ListPage.propTypes = {
-   proverbs: PropTypes.object.isRequired
+   stats: PropTypes.object.isRequired,
+   refreshPage: PropTypes.func.isRequired
  }
 
  export default ListPage;

@@ -2,38 +2,38 @@ import expect from 'expect';
 import {createStore} from 'redux';
 import rootReducer from '../reducers';
 import initialState from '../reducers/initialState';
-import * as proverbActions from '../actions/proverbActions';
+import * as statActions from '../actions/statActions';
 
 describe('Store', () => {
-  it('should load in an array of proverbs', () => {
+  it('should load in an array of stats', () => {
     // arrange
     const store = createStore(rootReducer, initialState);
-    const proverbs = [
+    const stats = [
       {id: "A1023"},
       {id: "A1024"}
     ];
 
     // act
-    const action = proverbActions.loadProverbsSuccess(proverbs);
+    const action = statActions.loadStatsSuccess(stats);
     store.dispatch(action);
 
     // assert
-    const proverbsInStore = store.getState().proverbs;
-    expect(Object.keys(proverbsInStore).length).toEqual(2);
-    expect(proverbsInStore[proverbs[0].id]).toEqual(proverbs[0]);
+    const statsInStore = store.getState().stats;
+    expect(Object.keys(statsInStore).length).toEqual(2);
+    expect(statsInStore[stats[0].id]).toEqual(stats[0]);
   });
 
-  it('should handle creating proverbs', () => {
+  it('should handle creating stats', () => {
     // arrange
     const store = createStore(rootReducer, initialState);
-    const proverb = {id: "A1023"};
+    const stat = {id: "A1023"};
 
     // act
-    const action = proverbActions.updateProverbSuccess(proverb);
+    const action = statActions.updateStatSuccess(stat);
     store.dispatch(action);
 
     // assert
-    const newState = store.getState().proverbs;
-    expect(newState[proverb.id].id).toEqual(proverb.id);
+    const newState = store.getState().stats;
+    expect(newState[stat.id].id).toEqual(stat.id);
   });
 });
