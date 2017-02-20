@@ -21,7 +21,7 @@ test:
     - npm run test:coverage
 
   post:
-    - npm run coveralls
+
 
 general:
   artifacts:
