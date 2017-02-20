@@ -6,7 +6,7 @@ import toastr from 'toastr';
 async function loadData(store) {
   await store.dispatch(settingsActions.loadSettings());
   store.dispatch(statActions.loadStats())
-    .catch(err => 'An error occured. Are you sure your token hasn\'t expired?)
+    .catch(err => toastr.error('An error occured. Are you sure your token hasn\'t expired?'));
 }
 
 function appInit (store) {
