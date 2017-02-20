@@ -31,7 +31,7 @@ export function edit(settings, key) {
 * @return {object} new serialized setting object
 */
 function update(settings, updates, editing) {
-  return object.assign(settings, updates, {editing})
+  return Object.assign(settings, updates, {editing})
 }
 
 /**

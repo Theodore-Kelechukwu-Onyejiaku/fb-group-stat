@@ -30,7 +30,6 @@ describe('<StatCard />', () => {
 
   it('renders the StatCard component', () => {
     expect(wrapper.find('.stat-card').length).toEqual(1);
-    expect(wrapper.find('.card-header').text()).toEqual(stat.body);
   });
 
 });

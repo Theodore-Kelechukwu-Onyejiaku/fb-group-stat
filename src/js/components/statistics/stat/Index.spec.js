@@ -21,41 +21,20 @@ const actions = {
   loadStats : () => {},
   saveStat  : () => {}
 };
+//
+// const setUp = () => {
+//   const [stat] = stats;
+//   const props = {
+//     stat,
+//     params       : { statId: "1" },
+//     loadStats : spyOn(actions, 'loadStats'),
+//     saveStat  : spyOn(actions, 'saveStat')
+//   };
+//
+//   return mount(
+//     <Provider store={store}>
+//       <Stat {...props} />
+//     </Provider>
+//   );
+// }
 
-const setUp = () => {
-  const [stat] = stats;
-  const props = {
-    stat,
-    params       : { statId: "1" },
-    loadStats : spyOn(actions, 'loadStats'),
-    saveStat  : spyOn(actions, 'saveStat')
-  };
-
-  return mount(
-    <Provider store={store}>
-      <Stat {...props} />
-    </Provider>
-  );
-}
-
-describe('<Stat /> container', () => {
-  let StatFormComponent, StatComponent;
-
-  beforeEach(() => {
-    const wrapper = setUp();
-    StatComponent = wrapper.find(Stat);
-    StatFormComponent = wrapper.find(StatForm);
-  });
- 
-  it('should render the Stat component', () => {
-    // assertions
-    expect(StatFormComponent).toBeTruthy();
-  });
-  
-  it('should contain a Stat Form component', () => {
-    // assertions
-    expect(StatFormComponent).toBeTruthy();
-    expect(StatFormComponent.length).toEqual(1);
-    expect(StatComponent.prop('stat')).toEqual(stats[0])
-  });
-});

@@ -1,59 +1,55 @@
 import expect from 'expect';
-import statReducer from './statReducer';
-import * as actions from '../../actions/statActions';
+import settingReducer from './settingReducer';
+import * as actions from '../../actions/settingActions';
 
-describe('Stat Reducer Test', () => {
-  it('should load stats when passed LOAD_STATS_SUCCESS', () => {
+describe('Setting Reducer Test', () => {
+  it('should load stats when passed LOAD_SETTINGS_SUCCESS', () => {
     const initialState = {};
-    const stats = [
-      {id: 1},
-      {id: 2}
-    ];
-    const expectedState = {
-      1: {id: 1},
-      2: {id: 2}
-    };
-    const action = actions.loadStatsSuccess(stats);
+    const settings = {
+      access_token: '123',
+      group_id: '456'
+    }
+
+    const action = actions.loadSettingsSuccess(settings);
 
     // action
-    const newState = statReducer(initialState, action);
+    const newState = settingReducer(initialState, action);
 
     // assertion
-    expect(newState).toEqual(expectedState);
+    expect(newState).toEqual(settings);
   });
 
-  it('should add a new stat when passed UPDATE_STAT_SUCCESS' +
-    ' if stat doesn\'t already exist in store', () => {
+  it('should add a new setting when passed UPDATE_SETTING_SUCCESS' +
+    ' if setting doesn\'t already exist in store', () => {
     const initialState = {
-      1: {id: 1},
-      2: {id: 2}
-    };
-    const newStat = {id: 'C'};
+      access_token: '123',
+      group_id: '456'
+    }
+    const newSetting = {id: 'C'};
 
-    const action = actions.updateStatSuccess(newStat);
+    const action = actions.updateSettingSuccess(newSetting);
 
     // action
-    const newState = statReducer(initialState, action);
+    const newState = settingReducer(initialState, action);
 
-    expect(Object.keys(newState).length).toEqual(3);
-    expect(newState[1].id).toEqual(1);
-    expect(newState[2].id).toEqual(2);
+    expect(Object.keys(newState).length).toEqual(4);
+    expect(newState.id).toEqual('C');
   });
 
-  it('should update stat when passed UPDATE_STAT_SUCCESS', () => {
+  it('should update setting when passed UPDATE_SETTING_SUCCESS', () => {
     const initialState = {
-      1: {id: 1},
-      2: {id: 2}
+      access_token: "1234"
     };
-    const stat = {id: 2, labor_cost: 34};
-    const action = actions.updateStatSuccess(stat);
+    const setting = {group_id: 34};
+    const action = actions.updateSettingSuccess(setting);
 
     // action
-    const updatedState = statReducer(initialState, action);
+    const updatedState = settingReducer(initialState, action);
+    console.log(updatedState)
 
     // assertions
-    expect(Object.keys(updatedState).length).toEqual(2);
-    expect(updatedState[stat.id].labor_cost).toEqual(34);
+    expect(Object.keys(updatedState).length).toEqual(3);
+    expect(updatedState.group_id).toEqual(34);
   });
 
 });

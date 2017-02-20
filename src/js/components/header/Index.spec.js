@@ -20,7 +20,7 @@ describe('Header Component', () => {
 
 
   it('should display site name', () => {
-    expect(wrapper.find('.navbar-brand').text()).toEqual('Hidden Wisdom');
+    expect(wrapper.find('.navbar-brand').text()).toEqual('FB Group Stats');
   });
 
 });

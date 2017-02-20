@@ -1,32 +1,22 @@
 import expect from 'expect';
-import mockProverbsApi, { proverbWithTranslation } from './mockStatsApi';
-import { proverbs } from './data/stats';
+import mockStatsApi, { statWithTranslation } from './mockStatsApi';
+import { stats } from './data/stats';
 import { translations } from './data/settings';
 
-describe('mockProverbApi()', () => {
-  it('should return an array of proverbs on getAllProverbs()', () => {
-    mockProverbsApi.getAllProverbs()
+describe('mockStatApi()', () => {
+  it('should return an array of stats on getAllStats()', () => {
+    mockStatsApi.getAllStats()
     .then(res => {
-      expect(res).toEqual(proverbs);
+      expect(res).toEqual(stats);
     });
   });
 
-  it('should return a proverb on getProverb()', () => {
-    const proverbId = "1";
-    mockProverbsApi.getProverb(proverbId)
+  it('should return a stat on getStat()', () => {
+    const statId = "1";
+    mockStatsApi.getStat(statId)
     .then(res => {
-      expect(res).toEqual(proverbs[1]);
+      expect(res).toEqual(stats[1]);
     });
   });
 
-  it('should return proverbs with new proverb on saveProverb()', () => {
-    const proverb = { body: 'new proverb', language: 'en' }
-
-    expect(proverbs.length).toEqual(8);
-
-    mockProverbsApi.saveProverb(proverb)
-    .then(res => {
-      expect(proverbs.length).toEqual(9);
-    });
-  });       
 });
