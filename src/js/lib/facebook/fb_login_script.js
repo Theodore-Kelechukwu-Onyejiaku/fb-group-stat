@@ -1,9 +1,11 @@
+import config from '../../config/environment';
+
 /*eslint-disable no-undef */
 
 export default function fb_login_init(loginSuccessHandler) {
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1019149808185946',
+      appId      : config.appId,
       xfbml      : true,
       version    : 'v2.6'
     });

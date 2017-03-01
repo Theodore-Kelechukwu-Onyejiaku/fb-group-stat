@@ -15,12 +15,14 @@ export class Header extends React.Component {
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">FB Group Stats</Link>
           <ul className="nav navbar-nav pull-xs-right right-nav">
-            {!isEmpty(currentUser) && <li className="nav-item" key={3}>
-              <Link className="nav-link" to="/proverbs/new">
-                <i className="fa fa-file-o" aria-hidden="true" />
-                Add
-              </Link>
-            </li>}
+            <li className="nav-item" key={3}>
+              <a href="https://developers.facebook.com/tools/explorer/?method=GET&path=me%2Fgroups"
+                 target="blank"
+                 className="nav-link">
+                <i className="fa fa-key" aria-hidden="true" />
+                Get Access Token
+              </a>
+            </li>
             {!isEmpty(currentUser) && <li className="nav-item" key={4}>
               <Link className="nav-link" to="/logout">
                 <i className="fa fa-file-o" aria-hidden="true" />

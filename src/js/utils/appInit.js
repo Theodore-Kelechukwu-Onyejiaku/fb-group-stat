@@ -10,7 +10,7 @@ async function loadData(store) {
 }
 
 function appInit (store) {
-  // (new fBLoginHandler(store)).loadInitScript();
+  (new fBLoginHandler(store)).loadInitScript();
   loadData(store)
 }
 

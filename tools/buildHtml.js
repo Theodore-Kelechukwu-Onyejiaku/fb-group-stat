@@ -4,7 +4,7 @@ const colors = require('colors');
 
 /*eslint-disable no-console */
 
-fs.readFile('src/index.html', 'utf-8', function (err, markup) {
+fs.readFile('build/index.html', 'utf-8', function (err, markup) {
   if (err) {
     return console.log(err);
   }

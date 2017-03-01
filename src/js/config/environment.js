@@ -1,11 +1,5 @@
-let host;
-
 if (process.ENV === 'production') {
-  host = "https://graph.facebook.com/v2.8"
+  module.exports = require('./prod.js')
 } else {
-  host = "https://graph.facebook.com/v2.8"
+  module.exports = require('./dev.js')
 }
-
-module.exports = {
-  host
-};
